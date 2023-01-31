@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('prova', function(){
+
+    $success = true;
+    $user = [
+        'name' => 'Ugo',
+        'lastname' => 'De Ughi'
+    ];
+    return response()->json(compact('success','user'));
+});
+
+Route::namespace('Api')
+    ->prefix('posts')
+    ->group(function(){
+        Route::get('/',[ProjectController::class, 'index']);
+
+    });

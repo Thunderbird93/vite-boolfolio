@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container frog">
-        <h1>Questa è una pagina pubblica</h1>
+        <h1 id="app"></h1>
     </div>
 @endsection
